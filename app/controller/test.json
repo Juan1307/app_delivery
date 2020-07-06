@@ -1,0 +1,62 @@
+{	
+	"usuario":10,
+	"persona":{
+		"01":{
+			"name":"Perron averiado",
+			"estado":false,
+			"edad":11,
+			"caminos":["av los venecos","nel wee"]
+		},
+		"02":{
+			"name":"Patitos gaming",
+			"estado":true,
+			"edad":12,
+			"caminos":["av los nekos","nel ssee"]
+		}
+
+	},
+	"state": true
+}
+
+{	
+	"usuario":{
+		"user":"Alvaro_23",
+		"pass":"alva1234",
+	},
+	"persona":{	
+		"nombres":"Alvarado Cases",
+		"apellidos":"Casanova Rojas",
+		"num_doc":"12344321",
+		"sexo":true,
+		"direccion":"Av Los Nogales #423",
+		"f_nac":"12-02-1999",
+		"cel_tel":"897788882",
+		"tipo":"CLIN"
+	}
+}
+
+{	
+	"usuario":{
+		"user":"Alvaro_23",
+		"pass":"alva1234"
+	},
+	"persona":{	
+		"nombres":"Alvarado Cases",
+		"apellidos":"Casanova Rojas",
+		"num_doc":"12344321",
+		"sexo":true,
+		"direccion":"Av Los Nogales #423",
+		"f_nac":"12-02-1999",
+		"cel_tel":"897788882",
+		"tipo":"CLIN"
+	},
+	"negocio":{
+		"imagen":"Alvarado Cases",
+		"ruc":"Casanova Rojas",
+		"nombre":"12344321",
+		"tipo":"Tienda",
+		"horario":"10:pm - 80:am",
+		"direccion":"Av Los Nogales #423",
+		"descrip":"897788882"
+	}
+}

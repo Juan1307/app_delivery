@@ -7,14 +7,13 @@
 	class Cliente extends Personas
 	{
 
-		public function pst_cliente(array $data) : bool
+		public function pst_cliente(array $arr_per, array $user) : bool
 		{
-			$per = $data['persona'];
-			$usu = $data['usuario'];
+			
 			//
 		}
 
-		public function put_cliente(array $data) : bool
+		public function put_cliente(array $user) : bool
 		{
 			$usu = $data['usuario'];
 		}

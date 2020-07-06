@@ -31,6 +31,7 @@
 		    $outdata = array('data'=> $data);
 		    
 		    return array_merge($outdata, $pg);
+		    //return [...$outdata,...$pg]; funciona con elementos que no tengan clave personalizada
 		}
 
 		public function get_persona_id(string $tp, int $id) : array
@@ -38,6 +39,7 @@
 		    $sql = $this->mysql->prepare("SELECT * FROM tbl_personas INNER JOIN tbl_usuarios ON id_per_usu = id_persona 
 		    							  WHERE id_persona = $id AND p_tipo = '$tp'");
 		      	$sql->execute();
+
 		    return $sql->fetch();
 		}
 
@@ -70,7 +72,7 @@
 	echo "<hr>";
 	var_export($u);
 
-	$i = $user->get_persona_id(3);
+	$i = $user->get_persona_id('CLIENTE',1);
 	echo "<hr>";
 	var_export($i);
 

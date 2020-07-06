@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registro Negocio</title>
+    <link rel="stylesheet" href="public/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="public/fi-icons/foundation-icons.css">
+    <link rel="stylesheet" href="public/register/step-register.css">
+</head>
+
+<body>
+    <main class="my-4">
+        <div class="container">
+            <div role="application" class="wizard clearfix">
+                <div class="steps clearfix">
+                    <ul role="tablist">
+                        <li role="tab" class="first current">
+                            <a>
+                                <div class="media">
+                                    <div class="bd-wizard-step-icon"><i class="fi-home medium"></i></div>
+                                    <div class="media-body">
+                                        <div class="bd-wizard-step-title">Paso 1</div>
+                                        <div class="bd-wizard-step-subtitle">Negocio</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li role="tab" class="disabled">
+                            <a>
+                                <div class="media">
+                                    <div class="bd-wizard-step-icon"><i class="fi-torso medium"></i></div>
+                                    <div class="media-body">
+                                        <div class="bd-wizard-step-title">Paso 2</div>
+                                        <div class="bd-wizard-step-subtitle">Propietario</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li role="tab" class="disabled">
+                            <a>
+                                <div class="media">
+                                    <div class="bd-wizard-step-icon"><i class="fi-check medium"></i></div>
+                                    <div class="media-body">
+                                        <div class="bd-wizard-step-title">Paso 3</div>
+                                        <div class="bd-wizard-step-subtitle">Listo</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content clearfix">
+                    <section role="tabpanel" class="body current">
+                        <div class="content-wrapper">
+                            <h4 class="section-heading">Mi Negocio</h4>
+                            <div class="row">
+                                <div class="form-group col-12">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control form-control-lg text-center" placeholder="Nro Ruc">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-primary prepend-form"><i class="fi-check"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-6">
+                                    <label>Negocio:</label>
+                                    <input type="text" class="form-control" placeholder="Empanadas sabor chaufa :V" readonly>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-6">
+                                    <label>Tipo:</label>
+                                    <input type="text" class="form-control" placeholder="Tienda" readonly>
+                                </div>
+                                <div class="form-group col-sm-12 col-md-6">
+                                    <label>Direccion:</label>
+                                    <input type="text" class="form-control" placeholder="Ingrese Direccion">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-6">
+                                    <label>Atencion:</label>
+                                    <div class="form-group row">
+                                        <div class="col-6">
+                                            <input type="text" class="form-control text-center" placeholder="H . Inicio">
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="text" class="form-control text-center" placeholder="H . Final">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="actions clearfix">
+                    <ul role="menu">
+                        <button class="btn btn-primary btn-lg">Siguiente</button>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

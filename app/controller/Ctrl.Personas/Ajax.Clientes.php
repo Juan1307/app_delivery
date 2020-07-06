@@ -6,6 +6,22 @@
 	}
 	settype($id, "int");
 
+//operador de coalision
+	$someArray['key'] ??= 'foo';
+
+//operador de segregacion
+	function buildArray(){
+	return ['red', 'green', 'blue'];
+	}
+	$arr1 = [...buildArray(), 'pink', 'violet', 'yellow'];
+
+//funcion de flecha
+	$factor = 10;
+	$calc = fn($num) => $num * $factor;
+	
+//ternarios 
+	$b = (($a == 1 ? 'one' : $a == 2) ? 'two' : $a == 3) ? 'three' : 'other';
+
 	require_once '../models/Persona.php';
 
 	$cli = new Cliente();

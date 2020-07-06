@@ -4,7 +4,7 @@
 	
 	/* Clase Usuarios*/
 
-	class Personas extends DB
+	abstract class Personas extends DB
 	{
 		function __construct() {
 			parent::__construct();
@@ -47,8 +47,24 @@
 		    							  WHERE id_persona = $id AND p_tipo = '$tp'");
 		    return $sql->execute();
 		}
-	}
 
+		//FILTRO DE VALIDACION
+		public function get_exist_persona(int $dni, string $tp) :bool
+		{
+		    $sql = $this->mysql->prepare("SELECT COUNT(1) FROM tbl_personas INNER JOIN tbl_usuarios ON id_persona = id_per_usu 
+		    							  WHERE p_num_doc = '$dni' AND p_tipo = '$tp'");
+		      	$sql->execute();
+      		$rpt = $sql->fetchColumn();
+
+			return ($rpt === 1) ? true : false;
+		}
+
+		public function probando_xd($datitos)
+		{
+			return 'hola';
+		}
+	}
+/*
 	$user = new Personas();
 
 	$u = $user->get_personas('CLIENTE',1);
@@ -58,6 +74,6 @@
 
 	$i = $user->get_persona_id(3);
 	echo "<hr>";
-	var_export($i);
+	var_export($i);*/
 
 ?>
