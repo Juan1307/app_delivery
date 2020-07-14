@@ -13,12 +13,18 @@
 
 		public function pst_negocio(array $data, int $id_per) : bool
 		{
-			# Para ñadir mas negocios a una persona o negociante
+			# Para añadir mas negocios a una persona o negociante
 		}
 
-		public function del_negocio(int $id_neg, int $id_per)
+		public function del_negocio(int $id_neg, int $id_per) : bool
 		{
 			# Para eliminar un negocio 
+		}
+
+		//FILTROS DE NEGOCIO
+		public function get_exist_negocio(int $n_ruc) : bool
+		{
+			# code...
 		}
 
 	}

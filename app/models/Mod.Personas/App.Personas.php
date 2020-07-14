@@ -4,7 +4,7 @@
 	
 	/* Clase Usuarios*/
 
-	abstract class Personas extends DB
+	class Personas extends DB
 	{
 		function __construct() {
 			parent::__construct();
@@ -49,7 +49,7 @@
 		}
 
 		//FILTRO DE VALIDACION
-		public function get_exist_persona(int $dni, string $tp) :bool
+		public function get_exist_persona(int $dni, string $tp) : bool
 		{
 		    $sql = $this->mysql->prepare("SELECT COUNT(1) FROM tbl_personas INNER JOIN tbl_usuarios ON id_persona = id_per_usu 
 		    							  WHERE p_num_doc = '$dni' AND p_tipo = '$tp'");

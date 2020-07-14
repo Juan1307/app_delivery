@@ -17,14 +17,20 @@
 		    return $data;
 		}
 
-		public function pst_negociante(array $data) : bool
+		public function pst_negociante(array $per, array $usu, array $neg) : bool
 		{
-			$per = $data['persona'];
-			$usu = $data['usuario'];
-			$neg = $data['negocio'];
+		    $sql = $this->mysql->prepare("SELECT COUNT(1) FROM tbl_personas INNER JOIN tbl_usuarios ON id_persona = id_per_usu 
+		    							  WHERE p_num_doc = '$dni' AND p_tipo = '$tp'");
+		    $sql->execute();
+		    $sql = $this->mysql->prepare("SELECT COUNT(1) FROM tbl_personas INNER JOIN tbl_usuarios ON id_persona = id_per_usu 
+		    							  WHERE p_num_doc = '$dni' AND p_tipo = '$tp'");
+		    $sql->execute();
+		    $sql = $this->mysql->prepare("SELECT COUNT(1) FROM tbl_personas INNER JOIN tbl_usuarios ON id_persona = id_per_usu 
+		    							  WHERE p_num_doc = '$dni' AND p_tipo = '$tp'");
+		    $sql->execute();
 		}
 
-		public function put_negociante(array $data) : bool
+		public function put_negociante(array $usu, array $neg) : bool
 		{
 			$usu = $data['persona'];
 			$per = $data['negocio'];

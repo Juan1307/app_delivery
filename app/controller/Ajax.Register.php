@@ -22,7 +22,8 @@ $json = '{
 		"ruc":"23123243333",
 		"nombre":"El nuevo prron",
 		"tipo":"Tienda",
-		"horario":"10:pm - 80:am",
+		"hora-ini":"10:00",
+		"hora-fin":"10:00",
 		"direccion":"Av Los Nogales #423",
 		"descrip":"la mejor tienda del mundo"
 	}
@@ -34,99 +35,59 @@ $arr = get_json($json);
 if (isset($arr['error'])) {
 	die('json error');
 }
-
-$arr = (isset($arr['persona']) and isset($arr['usuario'])) ? $arr : die('error de llave');
+$arr = (isset($arr['persona'],$arr['usuario'])) ? $arr : die('error de llave');
 
 	$arr_per = $arr['persona'];
-	
-	if (isset($arr_per['num_doc'])   and isset($arr_per['nombres'])   and 
-		isset($arr_per['apellidos']) and isset($arr_per['sexo'])      and 
-		isset($arr_per['direccion']) and isset($arr_per['fecha_nac']) and 
-		isset($arr_per['cel_tel'])   and ver_persona($arr_per)){
-
-		echo "persona valida";	
-
-	}else{
+	if (!isset($arr_per['num_doc'],$arr_per['nombres'],$arr_per['apellidos'],
+		$arr_per['sexo'],$arr_per['direccion'],$arr_per['fecha_nac'],
+		$arr_per['cel_tel']) or !ver_persona($arr_per)){
 
 		die('error de persona');
-	
 	}
+
 
 	$arr_usu = $arr['usuario'];
-
-	if (isset($arr_usu['user']) and isset($arr_usu['pass'])) {
+	if (!isset($arr_usu['user'],$arr_usu['pass']) or !ver_usuario($arr_usu)) {
 		
-		//and ver_usuario($arr_usu)
-		echo "usuario valido";	
-	
-	} else {
-
 		die('error de usuario');
-	
-	}
-
-	foreach ($arr_usu as $key => $val) {
-
-		if ($key === 'user' and !preg_match('/^[a-zA-Z0-9-#_áÁéÉíÍóÓúÚñÑüÜ:\s]+$/', $val) or strlen($val) > 20) {
-			echo "error de user input";
-			break;
-		}
-		if ($key === 'pass' and !preg_match('/^[a-zA-Z0-9-#_áÁéÉíÍóÓúÚñÑüÜ:\s]+$/', $val) or strlen($val) > 20){
-			echo "error de pass input";
-			break;
-		}
 	}
 
 $opt = $arr_per['tipo'];
 
-
-/*
-
-
-/*$b = VF::verify_usuario($arr['usuario']);
-
-$arr_per = is_array($p) ? $p : die('error');
-$arr_usu = is_array($u) ? $u : die('error');
-
-$opt = $arr['persona'][0];
-
 switch ($opt) {
-	case 'CLIE':
 
-		$num_doc = val_num_doc($arr['persona'][1]) ? $arr['persona'][1] : die('error de numdoc'); 
-		settype($num_doc, "int");
-
+	case 'CLI':
 		require_once '../models/Mod.Personas/Class.Cliente.php';
 
 		$cli = new Cliente();
+		$est = $cli->pst_cliente($arr_per,$arr_usu);
 
-			$res = $cli->get_state_persona($num_doc,'CLIENTE'); //se podria hacer en la api de DNI
-		
-		if (!$res) {
-
-			$est = $cli->pst_cliente($arr_per,$arr_usu);
-
-			($est) ? header("Location:ruta") : die('error');
-		
-		}else{
-			die('existe - error');
-		}
+		echo json_encode($est);
 
 	break;
 	
-	case 'NEGO':
+	case 'NEG':
+	
 		$arr_neg = (isset($arr['negocio'])) ? $arr['negocio'] : die('error');
+		if (!isset($arr_neg['ruc'],$arr_neg['nombre'],$arr_neg['tipo'],
+			$arr_neg['hr_ini'],$arr_neg['hr_fin'],$arr_neg['direccion']) 
+			or !ver_negocio($arr_neg)) {
 
-		$arr_cln = VF::verify_negocio($arr_neg); //validamos datos del negocio
+			die('error de negocio');
+		}
 		
-		$arr_neg = (!isset($arr_cln['error'])) ? $arr_cln : die('error'); 
-		
-		# code... validamos el negocio
+		require_once '../models/Mod.Personas/Class.Negociante.php';
+
+		$neg = new Negociante();
+		$est = $neg->pst_negociante($arr_per, $arr_usu, $arr_neg);
+
+		echo json_encode($est);
+
 	break;
 	
 	default:
 		die('error option :/');
 	break;
-}*/
+}
 
 ?>	

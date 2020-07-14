@@ -9,13 +9,17 @@
 	}
 
 	switch ($opt) {
-		case 'CLIENTE':
+		case 'CLI':
 			# code... 
 		break;
 
-		case 'NEGOCIANTE':
+		case 'NEG':
 			# code...
 		break;
+
+		case 'TRA':
+			# code...
+			break;
 		
 		default:
 			die('error back :/');
