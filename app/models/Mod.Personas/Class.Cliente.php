@@ -35,7 +35,7 @@
 					$sql->bindParam(":fecha_nac",$privilegio,PDO::PARAM_STR);
 					$sql->bindParam(":cel_tel",$id_dir,PDO::PARAM_INT);
 
-		      	$sql = $this->mysql->prepare("SELECT COUNT(1) FROM tbl_personas INNER JOIN tbl_usuarios ON id_persona = id_per_usu 
+				$sql = $this->mysql->prepare("SELECT COUNT(1) FROM tbl_personas INNER JOIN tbl_usuarios ON id_persona = id_per_usu 
 		    							  WHERE p_num_doc = '$dni' AND p_tipo = '$tp'");
 
 			
